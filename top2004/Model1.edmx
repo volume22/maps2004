@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище UseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeArea" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="NoSplit" Type="bit" />
+          <Property Name="AssemblyArea" Type="bit" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MultipleOrders" Type="bit" />
+          <Property Name="HiddenArea" Type="bit" />
+          <Property Name="IP" Type="varchar" MaxLength="5000" />
+          <Property Name="PavilionId" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="OrderExecution" Type="int" />
+          <Property Name="Dependence" Type="int" />
+          <Property Name="WorkingPeople" Type="int" />
+          <Property Name="ComponentTypeId" Type="int" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="Segment" Type="int" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocumentCreateDate" Type="datetime" />
+          <Property Name="DocumentCloseDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="DocumentTypeId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ModelId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="ProducerId" Type="int" />
+          <Property Name="StockId" Type="int" />
+          <Property Name="MachinesSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="HoursMachines" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="SmcsCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComponentSN" Type="nvarchar" MaxLength="50" />
+          <Property Name="ComponentDismantlingDate" Type="datetime" />
+          <Property Name="PartsCost" Type="money" />
+          <Property Name="WorkCost" Type="money" />
+          <Property Name="ConsumablesCost" Type="money" />
+          <Property Name="ApprovedServiceEngineer" Type="bit" />
+          <Property Name="EngineModelId" Type="int" />
+          <Property Name="ComponentHours" Type="money" />
+          <Property Name="RepairTypeId" Type="int" />
+          <Property Name="ArrivalMonth" Type="datetime" />
+          <Property Name="DispatchDate" Type="datetime" />
+          <Property Name="DeliveryMethodId" Type="int" />
+          <Property Name="ToPlan" Type="bit" />
+          <Property Name="CabinetSE" Type="int" />
+          <Property Name="IsArrived" Type="bit" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="StatusId" Type="int" />
+        </EntityType>
+        <EntityType Name="newEquipment">
+          <Key>
+            <PropertyRef Name="intEquipmentID" />
+          </Key>
+          <Property Name="intEquipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intGarageRoom" Type="nvarchar" MaxLength="50" />
+          <Property Name="intManufacturerID" Type="int" Nullable="false" />
+          <Property Name="intModelID" Type="int" Nullable="false" />
+          <Property Name="strManufYear" Type="nvarchar" MaxLength="4" />
+          <Property Name="intSNPrefixID" Type="int" Nullable="false" />
+          <Property Name="strSerialNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="intEquipmentTypeID" Type="int" Nullable="false" />
+          <Property Name="intSMCSFamilyID" Type="int" Nullable="false" />
+          <Property Name="intSizeID" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="intMetered" Type="float" Nullable="false" />
+          <Property Name="LastDate" Type="date" Nullable="false" />
+          <Property Name="intLastMetered" Type="float" Nullable="false" />
+          <Property Name="intTotalMetered" Type="float" Nullable="false" />
+          <Property Name="intlimitDay" Type="int" />
+          <Property Name="intlimitWeek" Type="int" />
+          <Property Name="bitActive" Type="bit" Nullable="false" />
+          <Property Name="bitPreservation" Type="bit" Nullable="false" />
+          <Property Name="bitMeter" Type="bit" Nullable="false" />
+          <Property Name="bitKTG" Type="bit" Nullable="false" />
+          <Property Name="isDelete" Type="bit" Nullable="false" />
+          <Property Name="intLocationId" Type="int" Nullable="false" />
+          <Property Name="strDescription" Type="nvarchar" MaxLength="1050" />
+          <Property Name="floatCostTires" Type="float" />
+          <Property Name="intCostTiresCurrency" Type="int" />
+          <Property Name="floatAverageDivergence" Type="float" />
+          <Property Name="floatFullPrice" Type="float" />
+          <Property Name="intFullPriceCurrency" Type="int" />
+          <Property Name="dateStartUpDate" Type="date" />
+          <Property Name="intServiceLife" Type="int" />
+          <Property Name="intHoweverOddsAcceleration" Type="int" />
+          <Property Name="bitMethodAmortization" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableEquipmentHistory">
+          <Key>
+            <PropertyRef Name="intEquipmentHistoryId" />
+          </Key>
+          <Property Name="intEquipmentHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="intEquipmentID" Type="int" />
+          <Property Name="intTypeHistory" Type="int" />
+          <Property Name="dStartDate" Type="date" />
+          <Property Name="dEndDate" Type="date" />
+          <Property Name="intDaysCount" Type="int" />
+          <Property Name="intStatys" Type="int" />
+          <Property Name="intUserId" Type="int" />
+          <Property Name="dCahengeDate" Type="date" />
+        </EntityType>
+        <EntityType Name="TablesManufacturer">
+          <Key>
+            <PropertyRef Name="intManufacturerID" />
+          </Key>
+          <Property Name="intManufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strManufacturerChecklistId" Type="nvarchar" MaxLength="50" />
+          <Property Name="strName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TablesModel">
+          <Key>
+            <PropertyRef Name="intModelID" />
+          </Key>
+          <Property Name="intModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="strName" Type="nvarchar" MaxLength="10" />
+          <Property Name="intManufacturerID" Type="int" />
+          <Property Name="intSMCSFamilyID" Type="int" />
+          <Property Name="strImage" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Timer">
+          <Key>
+            <PropertyRef Name="TimerId" />
+          </Key>
+          <Property Name="TimerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateFinish" Type="datetime" />
+          <Property Name="DurationInSeconds" Type="int" />
+        </EntityType>
+        <EntityType Name="TimerArchive">
+          <Key>
+            <PropertyRef Name="TimerArchiveId" />
+          </Key>
+          <Property Name="TimerArchiveId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateFinish" Type="datetime" />
+          <Property Name="DurationInSeconds" Type="int" />
+        </EntityType>
+        <EntityType Name="TimerInactivity">
+          <Key>
+            <PropertyRef Name="TimerInactivityId" />
+          </Key>
+          <Property Name="TimerInactivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateFinish" Type="datetime" />
+          <Property Name="DurationInSeconds" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="TimerInactivityArchive">
+          <Key>
+            <PropertyRef Name="TimerInactivityArchiveId" />
+          </Key>
+          <Property Name="TimerInactivityArchiveId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="DocumentId" Type="int" />
+          <Property Name="DateStart" Type="datetime" />
+          <Property Name="DateFinish" Type="datetime" />
+          <Property Name="DurationInSeconds" Type="int" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <Association Name="FK_newEquipment_TablesManufacturer">
+          <End Role="TablesManufacturer" Type="Self.TablesManufacturer" Multiplicity="1" />
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesManufacturer">
+              <PropertyRef Name="intManufacturerID" />
+            </Principal>
+            <Dependent Role="newEquipment">
+              <PropertyRef Name="intManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newEquipment_TablesModel">
+          <End Role="TablesModel" Type="Self.TablesModel" Multiplicity="1" />
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesModel">
+              <PropertyRef Name="intModelID" />
+            </Principal>
+            <Dependent Role="newEquipment">
+              <PropertyRef Name="intModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newTablesModel_newTablesModel">
+          <End Role="TablesManufacturer" Type="Self.TablesManufacturer" Multiplicity="0..1" />
+          <End Role="TablesModel" Type="Self.TablesModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesManufacturer">
+              <PropertyRef Name="intManufacturerID" />
+            </Principal>
+            <Dependent Role="TablesModel">
+              <PropertyRef Name="intManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableEquipmentHistory_newEquipment">
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="0..1" />
+          <End Role="TableEquipmentHistory" Type="Self.TableEquipmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="newEquipment">
+              <PropertyRef Name="intEquipmentID" />
+            </Principal>
+            <Dependent Role="TableEquipmentHistory">
+              <PropertyRef Name="intEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище UseModelContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newEquipment" EntityType="Self.newEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableEquipmentHistory" EntityType="Self.TableEquipmentHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablesManufacturer" EntityType="Self.TablesManufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TablesModel" EntityType="Self.TablesModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timer" EntityType="Self.Timer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimerArchive" EntityType="Self.TimerArchive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimerInactivity" EntityType="Self.TimerInactivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimerInactivityArchive" EntityType="Self.TimerInactivityArchive" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_newEquipment_TablesManufacturer" Association="Self.FK_newEquipment_TablesManufacturer">
+            <End Role="TablesManufacturer" EntitySet="TablesManufacturer" />
+            <End Role="newEquipment" EntitySet="newEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newEquipment_TablesModel" Association="Self.FK_newEquipment_TablesModel">
+            <End Role="TablesModel" EntitySet="TablesModel" />
+            <End Role="newEquipment" EntitySet="newEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newTablesModel_newTablesModel" Association="Self.FK_newTablesModel_newTablesModel">
+            <End Role="TablesManufacturer" EntitySet="TablesManufacturer" />
+            <End Role="TablesModel" EntitySet="TablesModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableEquipmentHistory_newEquipment" Association="Self.FK_TableEquipmentHistory_newEquipment">
+            <End Role="newEquipment" EntitySet="newEquipment" />
+            <End Role="TableEquipmentHistory" EntitySet="TableEquipmentHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeArea" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="NoSplit" Type="Boolean" />
+          <Property Name="AssemblyArea" Type="Boolean" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MultipleOrders" Type="Boolean" />
+          <Property Name="HiddenArea" Type="Boolean" />
+          <Property Name="IP" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="PavilionId" Type="Int32" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="OrderExecution" Type="Int32" />
+          <Property Name="Dependence" Type="Int32" />
+          <Property Name="WorkingPeople" Type="Int32" />
+          <Property Name="ComponentTypeId" Type="Int32" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="Segment" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocumentId" />
+          </Key>
+          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentCreateDate" Type="DateTime" Precision="3" />
+          <Property Name="DocumentCloseDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentTypeId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ModelId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="ProducerId" Type="Int32" />
+          <Property Name="StockId" Type="Int32" />
+          <Property Name="MachinesSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HoursMachines" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SmcsCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComponentSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ComponentDismantlingDate" Type="DateTime" Precision="3" />
+          <Property Name="PartsCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WorkCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ConsumablesCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ApprovedServiceEngineer" Type="Boolean" />
+          <Property Name="EngineModelId" Type="Int32" />
+          <Property Name="ComponentHours" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RepairTypeId" Type="Int32" />
+          <Property Name="ArrivalMonth" Type="DateTime" Precision="3" />
+          <Property Name="DispatchDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryMethodId" Type="Int32" />
+          <Property Name="ToPlan" Type="Boolean" />
+          <Property Name="CabinetSE" Type="Int32" />
+          <Property Name="IsArrived" Type="Boolean" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="newEquipment">
+          <Key>
+            <PropertyRef Name="intEquipmentID" />
+          </Key>
+          <Property Name="intEquipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intGarageRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="intManufacturerID" Type="Int32" Nullable="false" />
+          <Property Name="intModelID" Type="Int32" Nullable="false" />
+          <Property Name="strManufYear" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="intSNPrefixID" Type="Int32" Nullable="false" />
+          <Property Name="strSerialNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="intEquipmentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="intSMCSFamilyID" Type="Int32" Nullable="false" />
+          <Property Name="intSizeID" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <Property Name="intMetered" Type="Double" Nullable="false" />
+          <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="intLastMetered" Type="Double" Nullable="false" />
+          <Property Name="intTotalMetered" Type="Double" Nullable="false" />
+          <Property Name="intlimitDay" Type="Int32" />
+          <Property Name="intlimitWeek" Type="Int32" />
+          <Property Name="bitActive" Type="Boolean" Nullable="false" />
+          <Property Name="bitPreservation" Type="Boolean" Nullable="false" />
+          <Property Name="bitMeter" Type="Boolean" Nullable="false" />
+          <Property Name="bitKTG" Type="Boolean" Nullable="false" />
+          <Property Name="isDelete" Type="Boolean" Nullable="false" />
+          <Property Name="intLocationId" Type="Int32" Nullable="false" />
+          <Property Name="strDescription" Type="String" MaxLength="1050" FixedLength="false" Unicode="true" />
+          <Property Name="floatCostTires" Type="Double" />
+          <Property Name="intCostTiresCurrency" Type="Int32" />
+          <Property Name="floatAverageDivergence" Type="Double" />
+          <Property Name="floatFullPrice" Type="Double" />
+          <Property Name="intFullPriceCurrency" Type="Int32" />
+          <Property Name="dateStartUpDate" Type="DateTime" Precision="0" />
+          <Property Name="intServiceLife" Type="Int32" />
+          <Property Name="intHoweverOddsAcceleration" Type="Int32" />
+          <Property Name="bitMethodAmortization" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TablesManufacturer" Relationship="Self.FK_newEquipment_TablesManufacturer" FromRole="newEquipment" ToRole="TablesManufacturer" />
+          <NavigationProperty Name="TablesModel" Relationship="Self.FK_newEquipment_TablesModel" FromRole="newEquipment" ToRole="TablesModel" />
+          <NavigationProperty Name="TableEquipmentHistory" Relationship="Self.FK_TableEquipmentHistory_newEquipment" FromRole="newEquipment" ToRole="TableEquipmentHistory" />
+        </EntityType>
+        <EntityType Name="TableEquipmentHistory">
+          <Key>
+            <PropertyRef Name="intEquipmentHistoryId" />
+          </Key>
+          <Property Name="intEquipmentHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="intEquipmentID" Type="Int32" />
+          <Property Name="intTypeHistory" Type="Int32" />
+          <Property Name="dStartDate" Type="DateTime" Precision="0" />
+          <Property Name="dEndDate" Type="DateTime" Precision="0" />
+          <Property Name="intDaysCount" Type="Int32" />
+          <Property Name="intStatys" Type="Int32" />
+          <Property Name="intUserId" Type="Int32" />
+          <Property Name="dCahengeDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="newEquipment" Relationship="Self.FK_TableEquipmentHistory_newEquipment" FromRole="TableEquipmentHistory" ToRole="newEquipment" />
+        </EntityType>
+        <EntityType Name="TablesManufacturer">
+          <Key>
+            <PropertyRef Name="intManufacturerID" />
+          </Key>
+          <Property Name="intManufacturerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strManufacturerChecklistId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="strName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="newEquipment" Relationship="Self.FK_newEquipment_TablesManufacturer" FromRole="TablesManufacturer" ToRole="newEquipment" />
+          <NavigationProperty Name="TablesModel" Relationship="Self.FK_newTablesModel_newTablesModel" FromRole="TablesManufacturer" ToRole="TablesModel" />
+        </EntityType>
+        <EntityType Name="TablesModel">
+          <Key>
+            <PropertyRef Name="intModelID" />
+          </Key>
+          <Property Name="intModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="strName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="intManufacturerID" Type="Int32" />
+          <Property Name="intSMCSFamilyID" Type="Int32" />
+          <Property Name="strImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="newEquipment" Relationship="Self.FK_newEquipment_TablesModel" FromRole="TablesModel" ToRole="newEquipment" />
+          <NavigationProperty Name="TablesManufacturer" Relationship="Self.FK_newTablesModel_newTablesModel" FromRole="TablesModel" ToRole="TablesManufacturer" />
+        </EntityType>
+        <EntityType Name="Timer">
+          <Key>
+            <PropertyRef Name="TimerId" />
+          </Key>
+          <Property Name="TimerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateFinish" Type="DateTime" Precision="3" />
+          <Property Name="DurationInSeconds" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TimerArchive">
+          <Key>
+            <PropertyRef Name="TimerArchiveId" />
+          </Key>
+          <Property Name="TimerArchiveId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateFinish" Type="DateTime" Precision="3" />
+          <Property Name="DurationInSeconds" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TimerInactivity">
+          <Key>
+            <PropertyRef Name="TimerInactivityId" />
+          </Key>
+          <Property Name="TimerInactivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateFinish" Type="DateTime" Precision="3" />
+          <Property Name="DurationInSeconds" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TimerInactivityArchive">
+          <Key>
+            <PropertyRef Name="TimerInactivityArchiveId" />
+          </Key>
+          <Property Name="TimerInactivityArchiveId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="DocumentId" Type="Int32" />
+          <Property Name="DateStart" Type="DateTime" Precision="3" />
+          <Property Name="DateFinish" Type="DateTime" Precision="3" />
+          <Property Name="DurationInSeconds" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_newEquipment_TablesManufacturer">
+          <End Role="TablesManufacturer" Type="Self.TablesManufacturer" Multiplicity="1" />
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesManufacturer">
+              <PropertyRef Name="intManufacturerID" />
+            </Principal>
+            <Dependent Role="newEquipment">
+              <PropertyRef Name="intManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newEquipment_TablesModel">
+          <End Role="TablesModel" Type="Self.TablesModel" Multiplicity="1" />
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesModel">
+              <PropertyRef Name="intModelID" />
+            </Principal>
+            <Dependent Role="newEquipment">
+              <PropertyRef Name="intModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TableEquipmentHistory_newEquipment">
+          <End Role="newEquipment" Type="Self.newEquipment" Multiplicity="0..1" />
+          <End Role="TableEquipmentHistory" Type="Self.TableEquipmentHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="newEquipment">
+              <PropertyRef Name="intEquipmentID" />
+            </Principal>
+            <Dependent Role="TableEquipmentHistory">
+              <PropertyRef Name="intEquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_newTablesModel_newTablesModel">
+          <End Role="TablesManufacturer" Type="Self.TablesManufacturer" Multiplicity="0..1" />
+          <End Role="TablesModel" Type="Self.TablesModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TablesManufacturer">
+              <PropertyRef Name="intManufacturerID" />
+            </Principal>
+            <Dependent Role="TablesModel">
+              <PropertyRef Name="intManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UserEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="Self.Area" />
+          <EntitySet Name="Document" EntityType="Self.Document" />
+          <EntitySet Name="newEquipment" EntityType="Self.newEquipment" />
+          <EntitySet Name="TableEquipmentHistory" EntityType="Self.TableEquipmentHistory" />
+          <EntitySet Name="TablesManufacturer" EntityType="Self.TablesManufacturer" />
+          <EntitySet Name="TablesModel" EntityType="Self.TablesModel" />
+          <EntitySet Name="Timer" EntityType="Self.Timer" />
+          <EntitySet Name="TimerArchive" EntityType="Self.TimerArchive" />
+          <EntitySet Name="TimerInactivity" EntityType="Self.TimerInactivity" />
+          <EntitySet Name="TimerInactivityArchive" EntityType="Self.TimerInactivityArchive" />
+          <AssociationSet Name="FK_newEquipment_TablesManufacturer" Association="Self.FK_newEquipment_TablesManufacturer">
+            <End Role="TablesManufacturer" EntitySet="TablesManufacturer" />
+            <End Role="newEquipment" EntitySet="newEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newEquipment_TablesModel" Association="Self.FK_newEquipment_TablesModel">
+            <End Role="TablesModel" EntitySet="TablesModel" />
+            <End Role="newEquipment" EntitySet="newEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TableEquipmentHistory_newEquipment" Association="Self.FK_TableEquipmentHistory_newEquipment">
+            <End Role="newEquipment" EntitySet="newEquipment" />
+            <End Role="TableEquipmentHistory" EntitySet="TableEquipmentHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_newTablesModel_newTablesModel" Association="Self.FK_newTablesModel_newTablesModel">
+            <End Role="TablesManufacturer" EntitySet="TablesManufacturer" />
+            <End Role="TablesModel" EntitySet="TablesModel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище UseModelContainer" CdmEntityContainer="UserEntities">
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="UseModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="TypeArea" ColumnName="TypeArea" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="NoSplit" ColumnName="NoSplit" />
+                <ScalarProperty Name="AssemblyArea" ColumnName="AssemblyArea" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="MultipleOrders" ColumnName="MultipleOrders" />
+                <ScalarProperty Name="HiddenArea" ColumnName="HiddenArea" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="PavilionId" ColumnName="PavilionId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="OrderExecution" ColumnName="OrderExecution" />
+                <ScalarProperty Name="Dependence" ColumnName="Dependence" />
+                <ScalarProperty Name="WorkingPeople" ColumnName="WorkingPeople" />
+                <ScalarProperty Name="ComponentTypeId" ColumnName="ComponentTypeId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Segment" ColumnName="Segment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document">
+            <EntityTypeMapping TypeName="UseModel.Document">
+              <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="DocumentCreateDate" ColumnName="DocumentCreateDate" />
+                <ScalarProperty Name="DocumentCloseDate" ColumnName="DocumentCloseDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="MachinesSN" ColumnName="MachinesSN" />
+                <ScalarProperty Name="HoursMachines" ColumnName="HoursMachines" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SmcsCode" ColumnName="SmcsCode" />
+                <ScalarProperty Name="ComponentSN" ColumnName="ComponentSN" />
+                <ScalarProperty Name="ComponentDismantlingDate" ColumnName="ComponentDismantlingDate" />
+                <ScalarProperty Name="PartsCost" ColumnName="PartsCost" />
+                <ScalarProperty Name="WorkCost" ColumnName="WorkCost" />
+                <ScalarProperty Name="ConsumablesCost" ColumnName="ConsumablesCost" />
+                <ScalarProperty Name="ApprovedServiceEngineer" ColumnName="ApprovedServiceEngineer" />
+                <ScalarProperty Name="EngineModelId" ColumnName="EngineModelId" />
+                <ScalarProperty Name="ComponentHours" ColumnName="ComponentHours" />
+                <ScalarProperty Name="RepairTypeId" ColumnName="RepairTypeId" />
+                <ScalarProperty Name="ArrivalMonth" ColumnName="ArrivalMonth" />
+                <ScalarProperty Name="DispatchDate" ColumnName="DispatchDate" />
+                <ScalarProperty Name="DeliveryMethodId" ColumnName="DeliveryMethodId" />
+                <ScalarProperty Name="ToPlan" ColumnName="ToPlan" />
+                <ScalarProperty Name="CabinetSE" ColumnName="CabinetSE" />
+                <ScalarProperty Name="IsArrived" ColumnName="IsArrived" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newEquipment">
+            <EntityTypeMapping TypeName="UseModel.newEquipment">
+              <MappingFragment StoreEntitySet="newEquipment">
+                <ScalarProperty Name="intEquipmentID" ColumnName="intEquipmentID" />
+                <ScalarProperty Name="intGarageRoom" ColumnName="intGarageRoom" />
+                <ScalarProperty Name="intManufacturerID" ColumnName="intManufacturerID" />
+                <ScalarProperty Name="intModelID" ColumnName="intModelID" />
+                <ScalarProperty Name="strManufYear" ColumnName="strManufYear" />
+                <ScalarProperty Name="intSNPrefixID" ColumnName="intSNPrefixID" />
+                <ScalarProperty Name="strSerialNo" ColumnName="strSerialNo" />
+                <ScalarProperty Name="intEquipmentTypeID" ColumnName="intEquipmentTypeID" />
+                <ScalarProperty Name="intSMCSFamilyID" ColumnName="intSMCSFamilyID" />
+                <ScalarProperty Name="intSizeID" ColumnName="intSizeID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="intMetered" ColumnName="intMetered" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="intLastMetered" ColumnName="intLastMetered" />
+                <ScalarProperty Name="intTotalMetered" ColumnName="intTotalMetered" />
+                <ScalarProperty Name="intlimitDay" ColumnName="intlimitDay" />
+                <ScalarProperty Name="intlimitWeek" ColumnName="intlimitWeek" />
+                <ScalarProperty Name="bitActive" ColumnName="bitActive" />
+                <ScalarProperty Name="bitPreservation" ColumnName="bitPreservation" />
+                <ScalarProperty Name="bitMeter" ColumnName="bitMeter" />
+                <ScalarProperty Name="bitKTG" ColumnName="bitKTG" />
+                <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+                <ScalarProperty Name="intLocationId" ColumnName="intLocationId" />
+                <ScalarProperty Name="strDescription" ColumnName="strDescription" />
+                <ScalarProperty Name="floatCostTires" ColumnName="floatCostTires" />
+                <ScalarProperty Name="intCostTiresCurrency" ColumnName="intCostTiresCurrency" />
+                <ScalarProperty Name="floatAverageDivergence" ColumnName="floatAverageDivergence" />
+                <ScalarProperty Name="floatFullPrice" ColumnName="floatFullPrice" />
+                <ScalarProperty Name="intFullPriceCurrency" ColumnName="intFullPriceCurrency" />
+                <ScalarProperty Name="dateStartUpDate" ColumnName="dateStartUpDate" />
+                <ScalarProperty Name="intServiceLife" ColumnName="intServiceLife" />
+                <ScalarProperty Name="intHoweverOddsAcceleration" ColumnName="intHoweverOddsAcceleration" />
+                <ScalarProperty Name="bitMethodAmortization" ColumnName="bitMethodAmortization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableEquipmentHistory">
+            <EntityTypeMapping TypeName="UseModel.TableEquipmentHistory">
+              <MappingFragment StoreEntitySet="TableEquipmentHistory">
+                <ScalarProperty Name="intEquipmentHistoryId" ColumnName="intEquipmentHistoryId" />
+                <ScalarProperty Name="intEquipmentID" ColumnName="intEquipmentID" />
+                <ScalarProperty Name="intTypeHistory" ColumnName="intTypeHistory" />
+                <ScalarProperty Name="dStartDate" ColumnName="dStartDate" />
+                <ScalarProperty Name="dEndDate" ColumnName="dEndDate" />
+                <ScalarProperty Name="intDaysCount" ColumnName="intDaysCount" />
+                <ScalarProperty Name="intStatys" ColumnName="intStatys" />
+                <ScalarProperty Name="intUserId" ColumnName="intUserId" />
+                <ScalarProperty Name="dCahengeDate" ColumnName="dCahengeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablesManufacturer">
+            <EntityTypeMapping TypeName="UseModel.TablesManufacturer">
+              <MappingFragment StoreEntitySet="TablesManufacturer">
+                <ScalarProperty Name="intManufacturerID" ColumnName="intManufacturerID" />
+                <ScalarProperty Name="strManufacturerChecklistId" ColumnName="strManufacturerChecklistId" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TablesModel">
+            <EntityTypeMapping TypeName="UseModel.TablesModel">
+              <MappingFragment StoreEntitySet="TablesModel">
+                <ScalarProperty Name="intModelID" ColumnName="intModelID" />
+                <ScalarProperty Name="strName" ColumnName="strName" />
+                <ScalarProperty Name="intManufacturerID" ColumnName="intManufacturerID" />
+                <ScalarProperty Name="intSMCSFamilyID" ColumnName="intSMCSFamilyID" />
+                <ScalarProperty Name="strImage" ColumnName="strImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timer">
+            <EntityTypeMapping TypeName="UseModel.Timer">
+              <MappingFragment StoreEntitySet="Timer">
+                <ScalarProperty Name="TimerId" ColumnName="TimerId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+                <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimerArchive">
+            <EntityTypeMapping TypeName="UseModel.TimerArchive">
+              <MappingFragment StoreEntitySet="TimerArchive">
+                <ScalarProperty Name="TimerArchiveId" ColumnName="TimerArchiveId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+                <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimerInactivity">
+            <EntityTypeMapping TypeName="UseModel.TimerInactivity">
+              <MappingFragment StoreEntitySet="TimerInactivity">
+                <ScalarProperty Name="TimerInactivityId" ColumnName="TimerInactivityId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+                <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimerInactivityArchive">
+            <EntityTypeMapping TypeName="UseModel.TimerInactivityArchive">
+              <MappingFragment StoreEntitySet="TimerInactivityArchive">
+                <ScalarProperty Name="TimerInactivityArchiveId" ColumnName="TimerInactivityArchiveId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="DateFinish" ColumnName="DateFinish" />
+                <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
